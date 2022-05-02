@@ -5,12 +5,12 @@ var food;
 playfield = 600;
 
 function preload() {
+  // background removed from https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRByKs3Tht5l9gDPTvTq9mESGr20Aejypkozg&usqp=CAU
   img = loadImage("meat.png")
 }
 
 
 // p5js Setup function - required
-
 function setup() {
   createCanvas(playfield, 640);
   background(51);
@@ -20,7 +20,6 @@ function setup() {
 }
 
 // p5js Draw function - required
-
 function draw() {
   background(51);
   scoreboard();
@@ -31,23 +30,29 @@ function draw() {
   s.update();
   s.show();
 
+  //
   fill(255, 0, 0);
   image(img, food.x, food.y, scl*1.2, scl*1.2);
   
-  //Hamburger
-  //fill (255, 150, 0);
-  //ellipse(food.x,food.y, scl, scl/3);
-  //ellipse(food.x,food.y+scl*2/3, scl, scl/3);
-  //fill(0, 150, 0);
-  //rect(food.x-scl/2,food.y+scl/20, scl, scl/6);
-  //fill(255, 250, 0);
-  //rect(food.x-scl/2,food.y+5, scl, scl/6);
-  //fill(200, 150, 0);
-  //rect(food.x-scl/2,food.y+8, scl, scl/6);
+  /*
+  // Hamburger design
+  
+  fill (255, 150, 0);
+  ellipse(food.x,food.y, scl, scl/3);
+  ellipse(food.x,food.y+scl*2/3, scl, scl/3);
+  
+  fill(0, 150, 0);
+  rect(food.x-scl/2,food.y+scl/20, scl, scl/6);
+  
+  fill(255, 250, 0);
+  rect(food.x-scl/2,food.y+5, scl, scl/6);
+  
+  fill(200, 150, 0);
+  rect(food.x-scl/2,food.y+8, scl, scl/6);
+  */
 }
 
 // Pick a location for food to appear
-
 function pickLocation() {
   var cols = floor(playfield/scl);
   var rows = floor(playfield/scl);
@@ -55,7 +60,6 @@ function pickLocation() {
   food.mult(scl);
 
   // Check the food isn't appearing inside the tail
-
   for (var i = 0; i < s.tail.length; i++) {
     var pos = s.tail[i];
     var d = dist(food.x, food.y, pos.x, pos.y);
@@ -66,7 +70,6 @@ function pickLocation() {
 }
 
 // scoreboard
-
 function scoreboard() {
   fill(0);
   rect(0, 600, 600, 40);
@@ -80,7 +83,6 @@ function scoreboard() {
 }
 
 // CONTROLS function
-
 function keyPressed() {
   if (keyCode === UP_ARROW){
       s.dir(0, -1);
@@ -94,7 +96,6 @@ function keyPressed() {
 }
 
 // SNAKE OBJECT
-
 function Snake() {
   this.x =0;
   this.y =0;
