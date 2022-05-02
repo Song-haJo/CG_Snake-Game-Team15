@@ -51,15 +51,25 @@ function pickLocation() {
 
 // scoreboard
 function scoreboard() {
-  fill(0);
+  if (s.score > 7) {
+    fill(255, 255, 0);
+  } else {
+    fill(0);
+  }
   rect(0, 600, 600, 40);
-  fill(255);
+  if (s.score > 7) {
+    fill(255, 0, 0);
+    textStyle(BOLD);
+  } else {
+    fill(255);
+    textStyle(NORMAL);
+  }
   textFont("Georgia");
   textSize(18);
   text("Score: ", 10, 625);
-  text("Highscore: ", 450, 625)
-  text(s.score, 70, 625);
-  text(s.highscore, 540, 625)
+  text("Highscore: ", 450, 625);
+  text(s.score, 80, 625);
+  text(s.highscore, 560, 625);
 }
 
 // CONTROLS function
@@ -137,7 +147,7 @@ function Snake() {
 
   }
   this.show = function(){
-    fill(255);
+    fill(0, 255, 0);
     for (var i = 0; i < this.tail.length; i++) {
         rect(this.tail[i].x, this.tail[i].y, scl, scl);
     }
