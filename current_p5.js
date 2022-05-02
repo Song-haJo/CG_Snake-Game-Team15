@@ -29,7 +29,7 @@ function draw() {
   s.update();
   s.show();
 
-  image(img, food.x, food.y, scl*1.2, scl*1.2);  // food(meat)
+  image(img, food.x, food.y, scl*1.2, scl*1.2);  // food
 }
 
 // Pick a location for food to appear
